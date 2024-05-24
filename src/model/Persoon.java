@@ -1,6 +1,7 @@
 package model;
 
-public abstract class Persoon {
+// interface Comparable toevoegen, met het type Persoon tussen de <>
+public abstract class Persoon implements Comparable<Persoon> {
     // attributes
     protected final static String DEFAULTWAARDE_NAAM = "onbekend";
     protected final static String DEFAULTWAARDE_WOONPLAATS = "onbekend";
@@ -32,6 +33,12 @@ public abstract class Persoon {
     @Override
     public String toString() {
         return String.format("%s woont in %s en werkt op afdeling %s", naam, woonplaats, afdeling.toString());
+    }
+
+    //compareTo() toegevoegd waarin je de naam vergelijkt
+    @Override
+    public int compareTo(Persoon ander) {
+        return this.naam.compareTo(ander.naam);
     }
 
     // getters, setters

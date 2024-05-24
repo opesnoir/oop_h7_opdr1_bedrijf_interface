@@ -1,6 +1,6 @@
 package model;
 
-public class Zzper extends Persoon {
+public class Zzper extends Persoon implements Oproepbaar {
     private double uurtarief;
     private int urenGewerkt;
     private final int MIN_UREN_GEWERKT = 0;
@@ -11,8 +11,10 @@ public class Zzper extends Persoon {
         this.urenGewerkt = MIN_UREN_GEWERKT;
     }
 
-    public int huurIn(int uren){
-        return urenGewerkt += uren; // Het voegt de waarde van uren toe aan urenGewerkt en wijzigt urenGewerkt. Let op urengewerkt + uren geeft alleen de som terug.
+    //override en maak void net als in de interface oproepbaar, die implementeer je namelijk, verwijder ook de return want de methode is nu void
+    @Override
+    public void huurIn(int uren){
+        urenGewerkt += uren; // Het voegt de waarde van uren toe aan urenGewerkt en wijzigt urenGewerkt. Let op urengewerkt + uren geeft alleen de som terug.
     }
 
     @Override
